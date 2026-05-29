@@ -1,0 +1,18 @@
+ <%- include("partials/header.ejs") %>
+
+<div class="container">
+
+ <h1>New Project</h1>
+ <form class="form" method="post" action="/new_project" enctype="multipart/form-data">
+    <label for="title">Title:</label>
+    <input type="text" id="title" name="title" required placeholder="Project Title">
+    <label for="content">Content:</label>
+    <textarea id="details" name="details" required placeholder="Project body"></textarea>
+    <input type="text" id="link" name="link" required placeholder="Project link">
+    <label for="image">Project Image:</label>
+    <input type="file" id="image" name="image" accept="image/*" required>
+    <button class="add" type="submit">Add Project</button>
+  </form>
+  </div>
+
+  <%- include("partials/footer.ejs") %>

@@ -1,13 +1,25 @@
 <%- include("partials/header.ejs") %>
  <div class="project-card">
-      <h2>Weather App</h2>
-      <p class="description">A simple JavaScript weather app that fetches data from an API and shows the current weather for any location.</p>
-      <a id="links" href="https://github.com/yourusername/weather-app" target="_blank">View on GitHub</a>
-    </div>
+      <ul>
+    <% projects.forEach(project => { %>
+        <li class="project-list">
+          <img  class="project-image" src="uploads/<%= project.image %>" alt="">
+            <h2 class="project-title"><%= project.title %> </h2>
+            <p class="project-body"><%= project.details %> </p>
+             <a href="<%= project.link %>" class="project-links"> <%= project.link %></a>
+            <div class="links">
+                <a class="edit" href="/edit/<%= project.id %>">Edit</a>
+                <form action="/delete/<%= project.id %>" method="post">
+                    <button class="delete" type="submit">Delete</button>
+                </form>
+            </div>
+            
 
-    <div class="project-card">
-      <h2>Task Manager</h2>
-      <p class="description">A Node.js app for managing to-do lists, featuring CRUD operations and a clean UI.</p>
-      <a id="links"  href="https://github.com/yourusername/task-manager" target="_blank">View on GitHub</a>
+        </li>
+   <% }); %>
+</ul>
+<div>
+ <a class="new" href="/new_project">Add new post</a>
 </div>
+
 <%- include("partials/footer.ejs") %>
