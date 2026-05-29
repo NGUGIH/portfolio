@@ -28,7 +28,7 @@ app.set('view engine', 'ejs');
 
 app.use(express.static(path.join(__dirname, "public")))
 // app.use("public/uploads", express.static(path.join(__dirname, "uploads")));
-app.use("/uploads", express.static("uploads"));
+app.use("/uploads", express.static(path.join(__dirname, "uploads")));
 
 app.use((req, res, next) => {
   res.locals.currentPath = req.path;
